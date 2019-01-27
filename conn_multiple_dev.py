@@ -1,4 +1,4 @@
-from netmiko import ConnectHandler
+from netmiko import Netmiko
 from getpass import getpass
 
 password = getpass()
@@ -31,12 +31,11 @@ srx2 = {
     "host": "srx2.lasthop.io",
     "username": "pyclass",
     "password": password,
-    "device_type": 'cisco_junos',
+    "device_type": 'juniper_junos',
     #"session_log": save_output_file,
 }
 
 for device in (cisco3, cisco4, nxos1, srx2):
     net_connect = Netmiko(**device)
-    print(net_connext.find_prompt())
-
+    print(net_connect.find_prompt())
 
